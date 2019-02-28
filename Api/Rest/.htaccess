@@ -1,0 +1,12 @@
+RewriteEngine On
+RewriteBase /Api/Rest/
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+
+Header add Access-Control-Allow-Origin "https://xgameprocom2.000webhostapp.com"
+Header add Access-Control-Allow-Methods: "GET,POST,OPTIONS,DELETE,PUT,PATCH"
+Header add Access-Control-Allow-Headers "Content-Type, Authorization"
+
