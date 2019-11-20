@@ -28,7 +28,7 @@ export class ComandaComponent implements OnInit {
   mostrarTabla: boolean;
   codCervezaCtrl: FormControl;
   codBebidaCtrl: FormControl;
-  codPlatoCtrl: FormControl;
+  codPlatoCtrl: FormControl; 
   codPostreCtrl: FormControl;
   cantCervezasCtrl: FormControl;
   cantBebidasCtrl: FormControl;
@@ -103,7 +103,7 @@ export class ComandaComponent implements OnInit {
     let cas = this.formBeer.get('cantCervezas').value;
     cos = parseInt(cos);
     cas = parseInt(cas);
-    const nuevo = {cod_prod: cos, cantidad: cas, estado: 0};
+    const nuevo = {cod_plato: cos, cantidad: cas, estado: 0};
     this.items.push(nuevo);
     this.total += new PrecioProductoPipe().transform(cos, '') * cas;
     this.formBeer.reset({codCerveza: '', cantCervezas: null });
@@ -115,7 +115,7 @@ export class ComandaComponent implements OnInit {
     let cab = this.formBebidas.get('cantBebidas').value;
     cob = parseInt(cob);
     cab = parseInt(cab);
-    const nuevo = {cod_prod: cob, cantidad: cab, estado: 0};
+    const nuevo = {cod_plato: cob, cantidad: cab, estado: 0};
     this.items.push(nuevo);
     this.total += new PrecioProductoPipe().transform(cob, '') * cab;
     this.formBebidas.reset({codBebida: '', cantBebidas: null });
@@ -127,7 +127,7 @@ export class ComandaComponent implements OnInit {
     cop = parseInt(cop);
     cap = parseInt(cap);
 
-    const nuevo = {cod_prod: cop, cantidad: cap, estado: 2};
+    const nuevo = {cod_plato: cop, cantidad: cap, estado: 2};
     this.items.push(nuevo);
     this.total += new PrecioProductoPipe().transform(cop, '') * cap;
     this.formPlatos.reset({codPlato: '', cantPlatos: null });
@@ -138,7 +138,7 @@ export class ComandaComponent implements OnInit {
     let cap = this.formPostres.get('cantPostres').value;
      cop = parseInt(cop);
      cap = parseInt(cap);
-    const nuevo = {cod_prod: cop, cantidad: cap, estado: 0};
+    const nuevo = {cod_plato: cop, cantidad: cap, estado: 0};
     this.total += new PrecioProductoPipe().transform(cop, '') * cap;
     this.items.push(nuevo);
 
@@ -146,7 +146,7 @@ export class ComandaComponent implements OnInit {
   }
 
   eliminarXindex(index: any) {
-    this.total  -= new PrecioProductoPipe().transform(this.items[index].cod_prod, '') * this.items[index].cantidad  ;
+    this.total  -= new PrecioProductoPipe().transform(this.items[index].cod_plato, '') * this.items[index].cantidad  ;
     this.items.splice(index, 1);
   }
 

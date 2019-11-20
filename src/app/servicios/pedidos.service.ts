@@ -6,7 +6,8 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class PedidosService {
-  url: string = 'https://xgameprocom2.000webhostapp.com/Api/Rest';
+  url: string = 'http://localhost:3000';
+  //url: string = 'https://xgameprocom2.000webhostapp.com/Api/Rest';
   //url: string = 'https://claudiomanza.000webhostapp.com/Api/Rest';
   //url: String = 'http://localhost/Api/Rest';
   rol;
@@ -18,22 +19,22 @@ export class PedidosService {
 
     switch (rol) {
       case 4:
-      return  this.http.getHttp(this.url + '/Pedidos/TraerPedidos');
+      return  this.http.getHttp(this.url + '/pedidos/traerpedidos');
 
       case 10:
-        return  this.http.getHttp(this.url + '/Pedidos/TraerPedidos');
+        return  this.http.getHttp(this.url + '/pedidos/traerpedidos');
 
       case 5:
-          return  this.http.getHttp(this.url + '/Pedidos/TraerPedidosCerveza');
+          return  this.http.getHttp(this.url + '/pedidos/TraerPedidosCerveza');
 
       case 6:
-          return  this.http.getHttp(this.url + '/Pedidos/TraerPedidosBartender');
+          return  this.http.getHttp(this.url + '/pedidos/TraerPedidosBartender');
 
       case 7:
-          return  this.http.getHttp(this.url + '/Pedidos/TraerPedidosCocina');
+          return  this.http.getHttp(this.url + '/pedidos/TraerPedidosCocina');
 
       case 8:
-          return  this.http.getHttp(this.url + '/Pedidos/TraerPedidosPostre');
+          return  this.http.getHttp(this.url + '/pedidos/TraerPedidosPostre');
 
     }
 

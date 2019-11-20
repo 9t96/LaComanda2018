@@ -165,8 +165,8 @@
                 <td></td>
               </tr>
               <tr *ngFor="let item of items; index as i" style="text-align: center;">
-                <th scope="row">{{ item.cod_prod}}</th> 
-                <td>{{item.cod_prod | codPipe}}</td>
+                <th scope="row">{{ item.cod_plato}}</th> 
+                <td>{{item.cod_plato | codPipe}}</td>
                 <td>{{item.cantidad}}</td>
                 <td>{{item.estado | estadoPedido }}</td>
                 <td><button class="btn btn-md btn-danger" (click)="eliminarXindex(i)"><i class="fas fa-times"></i></button></td>

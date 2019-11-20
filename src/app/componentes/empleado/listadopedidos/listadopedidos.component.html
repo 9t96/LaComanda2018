@@ -16,15 +16,17 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of items; index as i" style="text-align: center;">
-        <th scope="row">{{item.id}}</th> 
-        <th >{{item.cod_plato}}</th> 
+      <ng-container *ngFor="let item of items; index as i">
+      <tr *ngFor="let pedidos of item['pedidos']" style="text-align: center;">
+         
+          <th scope="row">{{item.idPedido}}</th> 
+        <th >{{pedidos.cod_plato}}</th> 
         <td>{{item.nro_mesa}}</td>
         <td>{{item.cliente}}</td>
-        <td>{{item.cod_plato | codPipe}}</td>
-        <td>{{item.cantidad}}</td>
+        <td>{{pedidos.cod_plato | codPipe}}</td>
+        <td>{{pedidos.cantidad}}</td>
         <td [ngClass]="{'text-secondary' : item.estado == 0, 'text-warning' : item.estado ==1, 'text-primary': item.estado == 2, 'text-succes': item.estado ==3}">
-          {{item.estado | estadoPedido}}
+          {{pedidos.estado | estadoPedido}}
         </td>
         <td>
           <button class="btn btn-warning" *ngIf="item.estado == 0 && rol == 5" data-toggle="modal" data-target="#exampleModal" (click)="salvarParaEnviar(item.id,item.cod_plato)">En preparacion</button>
@@ -37,9 +39,10 @@
           <button class="btn btn-info" *ngIf="item.estado == 1 && rol ==8"  (click)="cambiarEstadoPservir(item.id,item.cod_plato)">Para servir</button>
           <button class="btn btn-success" *ngIf="rol == 4"  [disabled]="item.estado !== 2" (click)="cambiarEstadoComiendo(item.id,item.cod_plato)">Clientes comiendo</button>
         </td>
-        <td *ngIf="item.estado !== 2 && item.estado !== 3">{{item.demora | demoraPedido}} Minutos</td>
+        <td *ngIf="item.estado !== 2 && item.estado !== 3">{{pedidos.demora | demoraPedido}} Minutos</td>
         <td *ngIf="item.estado == 3 || item.estado == 2">-</td>
       </tr>
+    </ng-container>
       <tr *ngIf="items.length === 0">
         <td colspan="8" style="text-align: center;">No hay pedidos para mostrar.</td>
       </tr>

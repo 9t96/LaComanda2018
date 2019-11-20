@@ -10,9 +10,9 @@ import { RequestOptions } from '@angular/http';
 })
 export class AdminService {
 //url: string = 'https://claudiomanza.000webhostapp.com/Api/Rest';
-  url: string = 'https://xgameprocom2.000webhostapp.com/Api/Rest';
+ // url: string = 'https://xgameprocom2.000webhostapp.com/Api/Rest';
   //url: String = 'http://localhost/Api/Rest';
-
+  url: string = 'http://localhost:3000';
   constructor(public http: HttpserviceService) { }
 
   AltaEmpleados(usuario): any {
