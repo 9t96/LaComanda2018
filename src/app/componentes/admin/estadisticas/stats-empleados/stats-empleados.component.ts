@@ -29,8 +29,8 @@ export class StatsEmpleadosComponent implements OnInit {
   displayedColumns: string[] = ['codemp', 'nombre', 'apellido', 'usuario', 'rol', 'entrada', 'salida', 'operaciones'];
   dataSource;
   logins: any;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator,{static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort,{static: true}) sort: MatSort;
 
   // PolarArea
   public mostrarPolar = false;

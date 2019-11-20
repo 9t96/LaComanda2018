@@ -17,7 +17,9 @@ export class AuthEmpleadoService implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Promise<boolean> {
 
-        if ( this.auth.getTipo() === 2) {
+        const tipoUsuario =  this.auth.getTipo();
+        console.log("Estamos en authEmpleado : " + tipoUsuario);
+        if (  tipoUsuario == 2) {
           return true;
         } else {
           this.router.navigate(['/error']);

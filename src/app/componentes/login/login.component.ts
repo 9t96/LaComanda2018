@@ -23,8 +23,14 @@ export class LoginComponent {
   constructor(public usuarioServ: UsuariosService, public router: Router, public routes: ActivatedRoute, public auth: AuthService ) {
     this.usuario = new Usuario();
 
-   }
-   admin() {
+  }
+  
+  ngOnInit(): void {
+   let algo = this.helper.decodeToken("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1Njk1ODgyNTg1ODksImF1ZCI6bnVsbCwiZGF0YSI6eyJjb2RfZW1wIjoyLCJlc3RhZG8iOjEsInJvbCI6Miwibm9tYnJlIjoicm9nZXIiLCJhcGVsbGlkbyI6ImZlZGVyZXIiLCJ1c2VyIjoiZW1wbGVhZG8ifSwçiYXBwIjoiTURCIEFQSSBDT01BTkRBIn0.8eV3xbVdkjv5dj0qJ8lU-jilJ6GW7vB_74O1coaGoY8");
+    console.log(algo);
+  }
+
+  admin() {
       this.user = 'admin';
       this.pass = 'admin';
    }
@@ -60,24 +66,29 @@ export class LoginComponent {
   iniciar() {
     this.usuario.pass = this.pass;
     this.usuario.user = this.user;
+
+    let user = {user: this.user, pass: this.pass};
     console.log(this.usuario);
-    const token = this.usuarioServ.InciarSesion(this.usuario);
-
-    token.then( data => {
-        localStorage.setItem('token', data);
-
+    let toto  = JSON.stringify(user)
+    this.usuarioServ.InciarSesion(user)
+    .then( data => {
+      let tokensin = data.token;
+      if(tokensin !== null || tokensin !== 'undefined'){
+        localStorage.setItem('token',tokensin);
+      }
+      
+      console.log(tokensin);
         if (data.error === 'no se encuentra') {
           this.isError = true;
           this.error = 'El usuario y/o la contraseña son erroneos';
-          console.log('nada');
         } else {
           if (data.error === 'baneado') {
             this.isError = true;
             this.error = 'El usuario se encuentra baneado';
           } else {
-            const datos = this.helper.decodeToken(data);
+            let datos = this.helper.decodeToken(tokensin);
             if (datos.data.estado === 1) {
-
+              console.log(datos.data);
               switch (datos.data.rol) {
                 case 4:
                   this.router.navigate(['/Empleado/Mozo/NuevaComanda']);
@@ -93,22 +104,22 @@ export class LoginComponent {
                   break;
               }
               // Aca guardo para seguimiento.
-              if (datos.data.tipo_usuario === 2) {
+              /* if (datos.data.tipo_usuario === 2) {
                 this.usuarioServ.loginParaSeguimiento({cod_emp: datos.data.cod_emp})
                 .then( hora => {
                   localStorage.setItem('horaentrada', hora);
                 });
-              }
+              } */
             } else {
-              console.log('not ok');
               console.log(datos.data);
               this.isError = true;
               this.error = 'Error del servidor';
             }
           }
         }
-    }).catch( err => {
-      console.error(err);
+    })
+    .catch( error => {
+      console.error(error);
     });
   }
 

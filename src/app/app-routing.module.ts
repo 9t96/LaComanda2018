@@ -53,7 +53,7 @@ const routes: Routes = [ {path: '' , redirectTo: '/login', pathMatch: 'full'},
         {path: 'NuevaComanda', component: ComandaComponent , canActivate: [AuthWardService, AuthmozoService]},
         {path: 'Mesas', component: MesasComponent , canActivate: [AuthWardService, AuthmozoService]},
       ]},
-      {path: 'PedidosLive', component: ListadopedidosComponent , canActivate: [AuthWardService, AuthEmpleadoService]},
+      {path: 'PedidosLive', component: ListadopedidosComponent ,canActivate: [AuthWardService, AuthEmpleadoService]},
     ]},
 {path: 'Cliente' , component: UsuarioComponent, canActivate: [AuthWardService, AuthUserService],
   children: [

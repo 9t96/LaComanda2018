@@ -23,7 +23,7 @@ export class HttpserviceService {
 
   }
 
-  public postHttp(url: string, object){
+  public postHttp(url: string, object:any){
     return this.http.post(url, object)
     .toPromise()
     .then(this.darDatos)

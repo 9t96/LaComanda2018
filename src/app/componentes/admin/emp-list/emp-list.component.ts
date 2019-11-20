@@ -54,8 +54,8 @@ export class EmpListComponent implements OnInit {
   displayedColumns: string[] = ['codemp', 'nombre', 'apellido', 'usuario', 'estado', 'rol', 'eliminar', 'suspender'];
   dataSource;
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor(private miContructor: FormBuilder, private router: Router, private adminServ: AdminService, public snackBar: MatSnackBar) {
 

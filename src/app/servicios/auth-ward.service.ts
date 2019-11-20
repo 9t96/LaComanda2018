@@ -13,8 +13,7 @@ export class AuthWardService implements CanActivate {
   user;
 
   canActivate() {
-
-    if (this.user !== null && this.auth.isAuthenticated()) {
+    if (this.user !== null && !this.auth.isAuthenticated()) {
       return true;
     }
     else{

@@ -47,13 +47,13 @@ export class PrincipalComponent implements OnInit {
 
   Salir() {
     let hEntrada = localStorage.getItem('horaentrada');
-    let emp = {cod_emp: this.auth.getUser(), horaentrada: hEntrada};
-    this.userServ.CerrarSeguimiento(emp);
+    //let emp = {cod_emp: this.auth.getUser(), horaentrada: hEntrada};
+    //this.userServ.CerrarSeguimiento(emp);
     localStorage.removeItem('token');
-    localStorage.removeItem('horaentrada');
-    this.router.navigate(['']);
-    this.rol = 25;
+    localStorage.removeItem('horaentrada');  
+    this.rol = 0;
     this.isLoged = false;
+    this.router.navigate(['/login']);
   }
 
 }
