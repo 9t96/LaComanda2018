@@ -45,20 +45,20 @@ export class AdminService {
   }
 
   public cambiarComiendo(objeto): any{
-    return this.http.postHttp(this.url + '/Mesas/mesaComiendo', objeto );
+    return this.http.postHttp(this.url + '/mesas/mesaComiendo', objeto );
   }
 
   public cambiarPagando(objeto): any{
-    return this.http.postHttp(this.url + '/Mesas/mesaPagando', objeto );
+    return this.http.postHttp(this.url + '/mesas/mesaPagando', objeto );
   }
 
   public cambiarCerrada(objeto): any{
-    return this.http.postHttp(this.url + '/Mesas/mesaCerrada', objeto );
+    return this.http.postHttp(this.url + '/mesas/mesaCerrada', objeto );
   }
 
   public mesaslive(): any
   {
-    return this.http.getHttp(this.url + '/Mesas/TraerMesasLive');
+    return this.http.getHttp(this.url + '/mesas/TraerMesasLive');
   }
 
   public statsplatos(): any{
@@ -66,11 +66,11 @@ export class AdminService {
   }
 
   public statsmesas(): any{
-    return this.http.getHttp(this.url + '/Mesas/StatsMesas');
+    return this.http.getHttp(this.url + '/mesas/StatsMesas');
   }
 
   public totalMesas(): any{
-    return this.http.getHttp(this.url + '/Mesas/TotalFacturadoXmesa');
+    return this.http.getHttp(this.url + '/mesas/TotalFacturadoXmesa');
     
   }
   
@@ -82,7 +82,7 @@ export class AdminService {
     return this.http.getHttp(this.url + '/Empleados/OperacionesXempleado');
   }
   public FacturasMaxYmin(): any{
-    return this.http.getHttp(this.url + '/Mesas/Max&MinFacturas');
+    return this.http.getHttp(this.url + '/mesas/Max&MinFacturas');
   }
 
   public totalMensual(): any{
