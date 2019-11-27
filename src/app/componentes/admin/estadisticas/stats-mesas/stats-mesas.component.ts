@@ -74,13 +74,13 @@ export class StatsMesasComponent implements OnInit {
   constructor(public adminServ: AdminService, public excelServ: ExcelService) {
     this.dataBC = {data: [], label: 'Usos'};
     this.dataUltimosMeses = {data: [], label: 'Total Facturado'};
+  }
+
+  ngOnInit() { 
     this.traerUsos();
     this.mesasTotal();
     this.facturasMaxYMin();
     this.totalUltimosMeses();
-  }
-
-  ngOnInit() { 
   }
 
   public chartClicked(e: any): void {
@@ -92,7 +92,6 @@ export class StatsMesasComponent implements OnInit {
   }
 
   traerUsos(){
-    
     this.adminServ.statsmesas()
     .then( data => {
         if (data !== []) {console.log(data);
