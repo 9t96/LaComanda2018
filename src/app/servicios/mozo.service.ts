@@ -18,7 +18,7 @@ export class MozoService {
   }
 
   guardarPedVendido(pedidos) {
-    return  this.http.postHttp(this.url + '/pedidos/sumarvendidos' , pedidos);
+    return  this.http.postHttp(this.url + '/pedidos/sumarvendido' , {platos: pedidos});
   }
 
   TraerMesasLive() {

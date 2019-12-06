@@ -17,12 +17,12 @@ export class AdminService {
 
   AltaEmpleados(usuario): any {
 
-    return  this.http.postHttp(this.url + '/Administrador/AltaEmpleados', usuario);
+    return  this.http.postHttp(this.url + '/admin/altaempleados', usuario);
   }
 
   public traerEmpleados<T>(): Observable<T> {
 
-    return this.http.GetObservable<T>(this.url + '/Administrador/TraerEmpleados');
+    return this.http.GetObservable<T>(this.url + '/admin/traerempleados');
 
   }
 
@@ -33,15 +33,15 @@ export class AdminService {
   }
 
   public SuspenderEmp(objeto): any {
-    return this.http.postHttp(this.url + '/Administrador/SuspEmpleado', objeto );
+    return this.http.postHttp(this.url + '/admin/suspempleado', objeto );
   }
 
   public ReincorporarEmp(objeto): any {
-    return this.http.postHttp(this.url + '/Administrador/ReincEmpleado', objeto );
+    return this.http.postHttp(this.url + '/admin/reincorporaremp', objeto );
   }
 
   public BajaLogica(objeto): any {
-    return this.http.postHttp(this.url + '/Administrador/EliminarEmpleado', objeto );
+    return this.http.postHttp(this.url + '/admin/eliminarempleado', objeto );
   }
 
   public cambiarComiendo(objeto): any{
@@ -62,27 +62,27 @@ export class AdminService {
   }
 
   public statsplatos(): any{
-    return this.http.getHttp(this.url + '/Pedidos/StatsPlatos');
+    return this.http.getHttp(this.url + '/pedidos/statsplatos');
   }
 
   public statsmesas(): any{
-    return this.http.getHttp(this.url + '/mesas/StatsMesas');
+    return this.http.getHttp(this.url + '/mesas/statsmesas');
   }
 
   public totalMesas(): any{
-    return this.http.getHttp(this.url + '/mesas/TotalFacturadoXmesa');
+    return this.http.getHttp(this.url + '/mesas/totalfacturadoxmesa');
     
   }
   
   public totalPorSector(): any{
-    return this.http.getHttp(this.url + '/Empleados/TotalXsector');
+    return this.http.getHttp(this.url + '/admin/totalxsector');
   }
   
   public StatsEmployee(): any{
-    return this.http.getHttp(this.url + '/Empleados/OperacionesXempleado');
+    return this.http.getHttp(this.url + '/admin/operacionesxempleado');
   }
   public FacturasMaxYmin(): any{
-    return this.http.getHttp(this.url + '/mesas/Max&MinFacturas');
+    return this.http.getHttp(this.url + '/mesas/max&minfacturas');
   }
 
   public totalMensual(): any{

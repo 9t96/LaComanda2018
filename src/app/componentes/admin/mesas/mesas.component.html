@@ -1,4 +1,4 @@
-<!--(click)="cambiarClose(item.estado, item.nro_mesa)"-->
+-<!--(click)="cambiarClose(item.estado, item.nro_mesa)"-->
 <div class="container" style="margin-top: 3em;">
  <h1 class="mb-3" style="color:#7297d6; text-align:center;">Estado de mesas</h1> 
 <button class="btn btn-md btn-info" (click)="reload()"><i class="fas fa-sync-alt"></i>Refrescar Mesas</button>
@@ -35,7 +35,7 @@
       <div class="modal-body">
         <strong>Cliente: </strong><i>{{pedidosPcuenta[0].cliente}}</i><br>
         <strong>Comensales: </strong><i>{{pedidosPcuenta[0].comensales}}</i><br>
-        <strong>Cod pedido: </strong><i>{{pedidosPcuenta[0].id}}</i><br>
+        <strong>Cod pedido: </strong><i>{{pedidosPcuenta[0].idPedido}}</i><br>
         <table class="table" style="text-align: center; margin-top: 2px;">
           <thead>
             <tr>

@@ -176,14 +176,31 @@ export class ComandaComponent implements OnInit {
       idPedido: codigito,
       total: this.total
     };
-    this.mozoServ.guardarPedVendido(nuevoPedido);
-    this.mozoServ.NuevosPedidos(nuevoPedido).then(
-      data => {
+    this.SumarPlatosVendidos(nuevoPedido.platos);
+    this.mozoServ.NuevosPedidos(nuevoPedido)
+    .then(data => {
         console.log(data);
         this.mostrarPrincipal = false;
         this.mostrarDivIdPedido = true;
       })
       .catch( error => console.log(error));
+  }
+
+  SumarPlatosVendidos(platos: any){
+    let exito = true;
+    platos.forEach(element => {
+      this.mozoServ.guardarPedVendido(element)
+      .then( res =>{
+        if (res.isSuccess) {
+          console.log();
+        }
+        else
+          exito = false;
+      })
+      .catch(err=>{
+        console.log(err);
+      })
+    });
   }
 
   cerrarModal()
